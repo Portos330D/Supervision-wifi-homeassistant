@@ -1,1 +1,28 @@
+📌 Capteur global Tuya/WiFi (ON = tout en ligne)
 
+template:
+  - binary_sensor:
+      - name: "Supervision WiFi"
+        unique_id: supervision_wifi_global
+        icon: mdi:wifi
+        state: >
+          {% set sensors = [
+            'binary_sensor.device_1_online',
+            'binary_sensor.device_2_online',
+            'binary_sensor.device_3_online',
+            'binary_sensor.device_4_online'
+          ] %}
+          {{ sensors | select('is_state', 'off') | list | count == 0 }}
+
+        attributes:
+          hors_ligne: >
+            {% set sensors = [
+              'binary_sensor.device_1_online',
+              'binary_sensor.device_2_online',
+              'binary_sensor.device_3_online',
+              'binary_sensor.device_4_online'
+            ] %}
+            {{ sensors | select('is_state', 'off') | list }}
+
+
+🔧 Remplace les sensors par les tiens
