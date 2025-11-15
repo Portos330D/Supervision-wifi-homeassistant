@@ -1,6 +1,0 @@
-input_boolean:
-  supervision_wifi_active:
-    name: Supervision WiFi Active
-    icon: mdi:wifi
-    initial: true
-    unique_id: supervision_wifi_active_001
