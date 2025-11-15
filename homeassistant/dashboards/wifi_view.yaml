@@ -1,1 +1,20 @@
+📌 Vue complète (exemples génériques)
 
+title: 🧭 Supervision WiFi
+icon: mdi:wifi
+cards:
+  - type: entities
+    title: 📡 Équipements WiFi
+    show_header_toggle: false
+    entities:
+      - entity: binary_sensor.device_1_online
+        name: Appareil 1
+      - entity: binary_sensor.device_2_online
+        name: Appareil 2
+      - entity: binary_sensor.device_3_online
+        name: Appareil 3
+      - entity: binary_sensor.device_4_online
+        name: Appareil 4
+
+
+Tu peux mettre des sections, emojis, catégories, comme dans ton propre dashboard.
