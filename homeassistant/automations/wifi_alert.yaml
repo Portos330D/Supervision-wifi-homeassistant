@@ -1,1 +1,41 @@
+📌 Alerte Telegram toutes les 15 min en cas d’appareil hors ligne
 
+alias: 📡 Supervision WiFi – Alerte appareils hors ligne
+description: >
+  Vérifie toutes les 15 minutes si des appareils WiFi/Tuya sont hors ligne.
+  Si oui, envoie une photo + un message Telegram avec boutons de pause.
+triggers:
+  - trigger: time_pattern
+    minutes: /15
+
+conditions:
+  - condition: state
+    entity_id: input_boolean.supervision_wifi_active
+    state: "on"
+
+actions:
+  - variables:
+      offline_list: "{{ state_attr('binary_sensor.supervision_wifi', 'hors_ligne') }}"
+      names: >
+        {{ offline_list | map('state_attr', 'friendly_name') | reject('none') | join('\n') }}
+
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: "{{ offline_list | count > 0 }}"
+        sequence:
+          - service: telegram_bot.send_photo
+            data:
+              file: /config/www/wifi.jpg
+              caption: |
+                📡 **Supervision WiFi :**
+
+                ⚠️ Appareils hors ligne détectés :
+
+                {{ names }}
+
+              inline_keyboard:
+                - ❌ 5 min:/disable_wifi_alert_5,❌ 1 h:/disable_wifi_alert_60
+                - ❌ 2 h:/disable_wifi_alert_120,❌ 6 h:/disable_wifi_alert_360
+                - ❌ 24 h:/disable_wifi_alert_1440
+mode: single
