@@ -15,3 +15,5 @@ cards:
         name: Appareil 3
       - entity: binary_sensor.device_4_online
         name: Appareil 4
+
+Tu peux mettre des sections, emojis, catégories, comme dans ton propre dashboard.
