@@ -116,6 +116,9 @@ supervision-wifi-homeassistant/
 ├── LICENSE
 ├── SECRETS_EXAMPLE.yaml
 ├── images/
+│ ├── telegram_wifi.png
+│ ├── supervision_wifi.png
+│ └── vue_wifi.png
 ├── www/
 │ └── wifi.jpg (optionnel)
 └── homeassistant/
