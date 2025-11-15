@@ -1,6 +1,23 @@
 # 📡 Supervision WiFi – Home Assistant
 Surveille automatiquement l’état de vos appareils WiFi/Tuya et recevez des notifications Telegram dès qu’un équipement devient hors ligne.
 
+## 🖼️ Aperçu du projet
+
+### 🔔 Notification Telegram automatique
+![Alerte Telegram](images/telegram_wifi.png)
+
+---
+
+### 📶 Capteur global de supervision
+![Supervision Tuya](images/supervision_wifi.png)
+
+---
+
+### 🖥️ Vue Lovelace complète
+![Vue Lovelace WiFi](images/vue_wifi.png)
+
+---
+
 Ce projet inclut :
 - Capteur global `binary_sensor.supervision_wifi`
 - Détection hors-ligne via Ping
